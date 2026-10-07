@@ -14,7 +14,7 @@ __pycache__/
 adapters/*/
 !adapters/.gitkeep
 data/split/
-data/CUSTOM_DATASET.md
+# data/CUSTOM_DATASET.md
 results/*.json
 results/*.csv
 !results/.gitkeep
@@ -37,3 +37,10 @@ hf_cache/
 .idea/
 .vscode/
 *.swp
+
+# Raw CUAD downloads
+data/*.csv
+data/*.xlsx
+data/*.txt
+data/CUAD*.json
+CUAD*.txt

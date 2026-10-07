@@ -123,7 +123,7 @@ bẩy thật sự trong lab này — vị trí adapter, learning rate, chất l�
 ## Phụ lục — thưởng đã làm
 
 - [ ] B1 NB6 merge + hot-swap
-- [ ] B2 dataset miền riêng (`data/CUSTOM_DATASET.md`)
+- [x] B2 dataset miền riêng (`data/CUSTOM_DATASET.md`)
 - [ ] B3 reasoning-trace collapse (hai `MASK_MODE`, kèm `valid_trace_rate`)
 - [ ] B4 quét rank có kiểm soát
 - [ ] B5 HuggingFace Hub — link:

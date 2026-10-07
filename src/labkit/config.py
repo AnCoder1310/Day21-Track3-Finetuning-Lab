@@ -165,21 +165,21 @@ SPECS: dict[str, LoraSpec] = {
 # These live here, not in generate.py, because BOTH training and evaluation need them
 # and holding two copies is how F-31 happened: the lab trained on one prompt shape and
 # scored on another, and every adapter came out at target=0.000.
-NAIVE_PROMPT = "Phân loại ticket sau."
+NAIVE_PROMPT = "Classify the following contract clause."
 
-OPTIMIZED_PROMPT = """Bạn là hệ thống phân loại ticket CSKH. Trả về DUY NHẤT một object JSON, không kèm giải thích, không kèm markdown fence.
+OPTIMIZED_PROMPT = """You are a legal contract triage assistant. Return ONLY a single valid JSON object, without explanation or markdown fences.
 
-Schema bắt buộc — đúng 4 khóa:
+Required schema — exactly 4 keys:
 {"intent": ..., "urgency": ..., "product": ..., "sentiment": ...}
 
-intent    ∈ doi_tra | van_chuyen | hoan_tien | san_pham_loi | hoi_thong_tin
-urgency   ∈ cao | trung_binh | thap
-sentiment ∈ tieu_cuc | trung_tinh | tich_cuc
-product   = tên sản phẩm xuất hiện nguyên văn trong ticket
+intent    ∈ governing_law | termination | anti_assignment | audit_rights | cap_on_liability
+urgency   ∈ high | medium | low
+sentiment ∈ negative | neutral | positive
+product   = key jurisdiction, condition, or subject matter verbatim from the clause
 
-Ví dụ:
-Ticket: "Shop ơi, mình đặt bàn phím cơ mã đơn DH123456. Giao hàng chậm. Đã 3 ngày rồi. Nhờ shop kiểm tra."
-JSON: {"intent": "van_chuyen", "urgency": "trung_binh", "product": "bàn phím cơ", "sentiment": "trung_tinh"}"""
+Example:
+Clause: "This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware."
+JSON: {"intent": "governing_law", "urgency": "low", "product": "Delaware", "sentiment": "neutral"}"""
 
 
 CONTRAST_KEYS = ["attn_only", "wrong_lr", "qlora"]
